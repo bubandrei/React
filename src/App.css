@@ -48,18 +48,6 @@ grid-template-areas:
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
 }
-.header{
-grid-area: h;
-background-color: green;
-}
-.header img{
-  width: 50px;
-}
-.nav{
-  grid-area: n;
-  background-color: burlywood;
-}
-.cnen{
-  grid-area: c;
-  background-color: cornflowerblue;
-}
+
+
+

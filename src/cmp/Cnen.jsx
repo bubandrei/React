@@ -1,3 +1,5 @@
+import './Cnen.css';
+
 const Cnen = () => {
     return (
         <div className='cnen'>
