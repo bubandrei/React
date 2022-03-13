@@ -36,13 +36,13 @@
     transform: rotate(360deg);
   }
 } */
-.app-wrapper{
+.app-wrapper {
   display: grid;
   width: 1200px;
   margin: 0 auto;
-grid-template-areas: 
-"h h"
-"n c";
+  grid-template-areas:
+    "h h"
+    "n c";
 
 
   grid-template-rows: 60px 1fr;
@@ -50,4 +50,7 @@ grid-template-areas:
 }
 
 
-
+.app-wrapper-conent {
+    grid-area: c;
+    background-color: cornflowerblue;
+}
