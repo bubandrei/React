@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import state from './state/state';
 
-let posts = [
-  { message: 'It\'s my first post!?!?!', count: 44, id: '1' },
-  { message: 'Hi, how are you?', count: 77, id: '2' },
-]
 
 ReactDOM.render(
   <React.StrictMode>
-    <App posts={posts}/>
+    <App state={state} />
   </React.StrictMode>,
   document.getElementById('root')
 );
