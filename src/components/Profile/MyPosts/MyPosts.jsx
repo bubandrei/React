@@ -3,13 +3,10 @@ import Post from './Post/Post';
 
 
 
-const MyPosts = () => {
-    let posts = [
-        { id: '1', message: 'It\'s my first post!!!', count: 44 },
-        { id: '2', message: 'Hi, how are you?', count: 77 },
-    ]
-    let postsElements = posts.map(el => {
-        return <Post key={el.id} message={el.message} count={el.count} />
+const MyPosts = (props) => {
+
+    let postsElements = props.posts.map((el, index) => {
+        return <Post key={index} message={el.message} count={el.count} id={el.id}/>
     })
 
     return (
