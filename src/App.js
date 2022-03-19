@@ -9,15 +9,16 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 
 
 const App = (props) => {
+  // console.log(props.state.profilePage)
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Navbar />
+        <Navbar state={props.state.dialogsPage}/>
         <div className='app-wrapper-conent'>
           <Routes>
-            <Route path="/dialogs/*" element={<Dialogs state={props.state}/>} />
-            <Route path="/profile" element= {<Profile posts={props.state} />} />
+            <Route path="/dialogs/*" element={<Dialogs state={props.state.dialogsPage}/>} />
+            <Route path="/profile" element= {<Profile state={props.state.profilePage} />} />
           </Routes>
         </div>
       </div>

@@ -1,0 +1,29 @@
+.wrappFriends {
+    margin-top: 50px;
+}
+
+.bigFlex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.flex {
+    display: flex;
+    text-align: center;
+}
+
+.nameFriend{
+    margin-top: 10px;
+    text-align: center;
+}
+h2{
+    text-align: center;
+}

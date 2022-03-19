@@ -13,6 +13,7 @@ let state = {
             { name: 'Badi!', id: '4' },
             { name: 'Amina!', id: '5' },
             { name: 'Sveta!', id: '6' },
+            { name: 'Rassel', id: '7' },
         ],
         messages: [
             { message: 'Hi!!!!!' },
@@ -21,6 +22,11 @@ let state = {
             { message: 'React!!!!' },
             { message: 'Redux!!!!' },
 
+        ],
+        activeFriend:[
+            { name: 'Crish!', id: '1' },
+            { name: 'Sancho!', id: '2' },
+            { name: 'Phill!', id: '3' },
         ]
     }
 }
