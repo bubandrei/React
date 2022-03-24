@@ -1,9 +1,12 @@
+import { renderEntireTree } from "../render";
+
 let state = {
     profilePage: {
         posts: [
             { message: 'It\'s my first post!?!?!', count: 44, id: '1' },
             { message: 'Hi, how are you?', count: 77, id: '2' },
         ],
+        newPostText:'ManUTD'
     },
     dialogsPage: {
         dialogs: [
@@ -23,11 +26,30 @@ let state = {
             { message: 'Redux!!!!' },
 
         ],
-        activeFriend:[
+        activeFriend: [
             { name: 'Crish!', id: '1' },
             { name: 'Sancho!', id: '2' },
             { name: 'Phill!', id: '3' },
         ]
     }
 }
+// window.state = state;
+export let addPost = () => {
+    let newPost = {
+        message:  state.profilePage.newPostText,
+
+        count: 12,
+        id: '3'
+    };
+
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    renderEntireTree(state);
+}
+
+export let updateNewPostText = (newPost) => {
+    state.profilePage.newPostText = newPost;
+    renderEntireTree(state);
+}
+
 export default state
