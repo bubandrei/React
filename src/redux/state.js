@@ -1,5 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
+import dialogsReducer from "./dialogsReducer";
+import profileReducer from "./profileReducer";
+
 let store = {
     _state: {
         profilePage: {
@@ -20,13 +21,14 @@ let store = {
                 { name: 'Rassel', id: '7' },
             ],
             messages: [
-                { message: 'Hi!!!!!' },
-                { message: 'How are you?' },
-                { message: 'Yo???' },
-                { message: 'React!!!!' },
-                { message: 'Redux!!!!' },
+                { id: 1, message: 'Hi!!!!!' },
+                { id: 2, message: 'How are you?' },
+                { id: 3, message: 'Yo???' },
+                { id: 4, message: 'React!!!!' },
+                { id: 5, message: 'Redux!!!!' },
 
             ],
+            newMessageBody: '',
             activeFriend: [
                 { name: 'Crish!', id: '1' },
                 { name: 'Sancho!', id: '2' },
@@ -43,26 +45,10 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                message: this._state.profilePage.newPostText,
-                count: 12,
-                id: '3'
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_TEXT) {
-            this._state.profilePage.newPostText = action.newPost;
-            this._callSubscriber(this._state);
-        }
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._callSubscriber(this._state);
     }
-}
-export const addPostActionCreate = () => {
-    return { type: ADD_POST }
-}
-export const updateNewPostTextActionCreator = (text) => {
-    return { type: UPDATE_NEW_TEXT, newPost: text }
 }
 
 window.store = store;
