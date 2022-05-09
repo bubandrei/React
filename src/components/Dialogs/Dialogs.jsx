@@ -4,21 +4,16 @@ import s from './Dialogs.module.css';
 import Message from './Message/Message';
 import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogsReducer';
 
-
-
-
 const Dialogs = (props) => {
-    debugger
+
     let state = props.store.getState().dialogsReducer;
-    debugger
+
     let dialogsElements = state.dialogs.map((el, index) => {
         return <DialogItem key={index} id={el.id} name={el.name} />
     })
-    debugger
     let messageElements = state.messages.map((el, index) => {
         return <Message key={index} id={el.id} message={el.message} />
     })
-    debugger
     let newMessageBoby = state.newMessageBody;
     let onSendMessageClick = () => {
         props.store.dispatch(sendMessageCreator())

@@ -20,11 +20,11 @@ let initialState= {
 
     ],
     newMessageBody: '',
-    // activeFriendReducer: [
-    //     { name: 'Crish!', id: '1' },
-    //     { name: 'Sancho!', id: '2' },
-    //     { name: 'Phill!', id: '3' },
-    // ]
+    activeFriendReducer: [
+        { name: 'Crish!', id: '1' },
+        { name: 'Sancho!', id: '2' },
+        { name: 'Phill!', id: '3' },
+    ]
 }
 
 const dialogsReducer = (state = initialState, action) => {

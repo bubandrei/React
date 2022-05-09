@@ -37,7 +37,6 @@ let store = {
             //     { name: 'Phill!', id: '3' },
             // ]
         },
-        sidebar: {}
     },
     _callSubscriber() {
     },
