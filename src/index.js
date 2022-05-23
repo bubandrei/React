@@ -10,13 +10,7 @@ let renderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <StoreContext.Provider value={store}>
-                <App 
-                // state={state}
-                //     dispatch={store.dispatch.bind(store)}
-                //     store={store}
-                // addPost={store.addPost.bind(store)}
-                // updateNewPostText={store.updateNewPostText.bind(store)}
-                />
+                <App />
             </StoreContext.Provider>
         </React.StrictMode>,
         document.getElementById('root')

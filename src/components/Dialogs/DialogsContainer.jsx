@@ -8,10 +8,6 @@ import StoreContext from '../../StoreContext';
 import store from '../../redux/reduxStore';
 
 const DialogsContainer = (props) => {
-    // debugger
-
-
-
     return (
         <StoreContext.Consumer>{
             (store) => {

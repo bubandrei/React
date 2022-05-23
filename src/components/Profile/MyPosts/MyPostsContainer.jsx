@@ -5,24 +5,21 @@ import MyPosts from './MyPosts';
 
 
 
-const MyPostsContainer = (props) => {
-
-
+const MyPostsContainer = () => {
     return (
-        <StoreContext.Consumer>{
+        <StoreContext.Consumer>
+            {
             (store) => {
                 let state = store.getState().profileReducer;
                 let addPost = () => {
                     let action = addPostActionCreate();
                     store.dispatch(action)
-
                 }
-
                 let onPostChange = (text) => {
                     let action = updateNewPostTextActionCreator(text)
                     store.dispatch(action)
                 }
-                <MyPosts
+                return <MyPosts
                     updateNewPostText={onPostChange}
                     addPost={addPost}
                     posts={state.posts}
