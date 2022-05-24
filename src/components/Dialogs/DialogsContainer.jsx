@@ -30,7 +30,7 @@ let mapStateToProps = (state) => {
         dialogsPage: state.dialogsPage
     }
 }
-let mapDispatchToProps = () => {
+let mapDispatchToProps = (dispatch) => {
     return {
         updateNewMessageBody: (body) => {
             dispatch(updateNewMessageBodyCreator(body))
