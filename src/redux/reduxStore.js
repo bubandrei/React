@@ -12,4 +12,6 @@ let reducers = combineReducers({
     sidebarReducer
 })
 let store = createStore(reducers);
+
+window.store = store;
 export default store;
