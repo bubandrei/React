@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Dialogs from './components/Dialogs/Dialogs';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import Users from './components/Users/Users';
 // import { rernderEntireTree } from './render';
 
 
@@ -21,7 +22,7 @@ const App = (props) => {
           <Routes>
             <Route path="/dialogs/*" element={<DialogsContainer />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/users" element={"users"} />
+            <Route path="/users" element={<Users />} />
           </Routes>
         </div>
       </div>
