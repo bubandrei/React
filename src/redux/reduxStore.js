@@ -7,11 +7,12 @@ import { legacy_createStore as createStore } from 'redux';
 
 
 let reducers = combineReducers({
-    dialogsReducer,
-    profileReducer,
-    sidebarReducer
+    dialogsPage: dialogsReducer,
+    profilePage: profileReducer,
+    sidebar: sidebarReducer
 })
 let store = createStore(reducers);
 
 window.store = store;
+
 export default store;

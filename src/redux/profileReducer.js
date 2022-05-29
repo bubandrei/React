@@ -18,13 +18,14 @@ const profileReducer = (state = initialState, action) => {
                 id: '3'
             };
             let stateCopy = { ...state };
+            stateCopy.posts = [...state.posts];
             stateCopy.posts.push(newPost);
             stateCopy.newPostText = '';
             return stateCopy;
         }
         case UPDATE_NEW_TEXT: {
             let stateCopy = { ...state };
-            stateCopy.newPostText = action.newPost;
+            stateCopy.newPostText = action.newText;
             return stateCopy;
         }
         default:
@@ -35,6 +36,6 @@ export const addPostActionCreate = () => {
     return { type: ADD_POST }
 }
 export const updateNewPostTextActionCreator = (text) => {
-    return { type: UPDATE_NEW_TEXT, newPost: text }
+    return { type: UPDATE_NEW_TEXT, newText: text }
 }
 export default profileReducer
