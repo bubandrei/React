@@ -7,10 +7,12 @@ let Users = (props) => {
             props.users.map(user => <div key={user.id}>
                 <span>
                     <div>
-                        <img src={user.fotoUrl} className={styles.userPhoto}/>
+                        <img src={user.fotoUrl} className={styles.userPhoto} />
                     </div>
                     <div>
-                        <button>Follow</button>
+                        {user.followed
+                            ? <button onClick={() => { props.unfollow(user.id) }}>Follow</button>
+                            : <button onClick={() => { props.follow(user.id) }}>UnFollow</button>}
                     </div>
                 </span>
                 <span>
