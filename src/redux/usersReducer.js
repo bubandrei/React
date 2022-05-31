@@ -1,5 +1,8 @@
+import { useRef } from "react";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
+const SET_USERS = 'SET_USERS';
 
 let initialState = {
     users: [
@@ -24,18 +27,22 @@ const usersReducer = (state = initialState, action) => {
         case UNFOLLOW:
             return {
                 ...state,
-                users: state.users.map(ituserem => {
+                users: state.users.map(user => {
                     if (user.id === action.userID) {
                         return { ...user, followed: false }
                     }
                     return user;
                 })
             }
+        case SET_USERS:
+            return { ...state, users: [...state.users, ...action.users] }
 
         default:
             return state;
     }
 }
-export const followAC = () => { return { type: FOLLOW } }
-export const unfollowAC = () => { return { type: UNFOLLOW } }
+export const followAC = (userID) => { return { type: FOLLOW } };
+export const unfollowAC = (userID) => { return { type: UNFOLLOW } };
+export const setUsers = (users) => { return { type: SET_USERS } };
+
 export default usersReducer
