@@ -1,8 +1,12 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
 
 let initialState = {
-    
+    users: [
+        { id: 1, followed: false, fullname: 'Andrei', status: 'I am a boss', location: { city: 'Warszawa', country: 'Poland' } },
+        { id: 2, followed: true, fullname: 'Sveta', status: 'I am a boss too', location: { city: 'Wrocław', country: 'Poland' } },
+        { id: 3, followed: false, fullname: 'Amina', status: 'I am a big boss', location: { city: 'Krakow', country: 'Poland' } }
+    ]
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -12,10 +16,6 @@ const usersReducer = (state = initialState, action) => {
             return state;
     }
 }
-export const addPostActionCreate = () => {
-    return { type: ADD_POST }
-}
-export const updateNewPostTextActionCreator = (text) => {
-    return { type: UPDATE_NEW_TEXT, newText: text }
-}
+export const followAC = () => { return { type: FOLLOW } }
+export const unfollowAC = (text) => { return { type: UNFOLLOW, newText: text } }
 export default usersReducer
