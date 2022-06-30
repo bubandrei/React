@@ -6,7 +6,7 @@ let Users = (props) => {
 
     if (props.users.length === 0) {
         axios.get('https://social-network.samuraijs.com/api/1.0/users')
-        .then((response)=> props.SetUsers())
+        .then((response)=> props.setUsers(response.data.items))
         // props.setUsers([
         //     { id: 1, fotoUrl: 'https://filestore.community.support.microsoft.com/api/images/f2e55cbf-8316-4d3a-9412-ecd8194b2a72?upload=true', followed: false, fullname: 'Andrei', status: 'I am a boss', location: { city: 'Warszawa', country: 'Poland' } },
         //     { id: 2, fotoUrl: 'https://filestore.community.support.microsoft.com/api/images/f2e55cbf-8316-4d3a-9412-ecd8194b2a72?upload=true', followed: true, fullname: 'Sveta', status: 'I am a boss too', location: { city: 'Wrocław', country: 'Poland' } },
@@ -30,12 +30,12 @@ let Users = (props) => {
                 </span>
                 <span>
                     <span>
-                        <div>{user.fullname}</div>
+                        <div>{user.name}</div>
                         <div>{user.status}</div>
                     </span>
                     <span>
-                        <div>{user.location.country}</div>
-                        <div>{user.location.city}</div>
+                        <div>{'user.location.country'}</div>
+                        <div>{'user.location.city'}</div>
                     </span>
                 </span>
             </div>
