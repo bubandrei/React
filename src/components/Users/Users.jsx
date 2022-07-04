@@ -1,15 +1,20 @@
 import React from "react";
 
 const Users = (props) => {
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  let pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
   return (
     <div>
       <div>
         {pages.map((p) => {
           return (
             <span
-              className={this.props.currentPage === p && styles.selectedPage}
+              className={props.currentPage === p && styles.selectedPage}
               onClick={(e) => {
-                this.onPageChanged(p);
+                onPageChanged(p);
               }}
             >
               {p}
@@ -17,7 +22,7 @@ const Users = (props) => {
           );
         })}
       </div>
-      {this.props.users.map((user) => (
+      {props.users.map((user) => (
         <div key={user.id}>
           <span>
             <div>
@@ -30,7 +35,7 @@ const Users = (props) => {
               {user.followed ? (
                 <button
                   onClick={() => {
-                    this.props.unfollow(user.id);
+                    props.unfollow(user.id);
                   }}
                 >
                   Follow
@@ -38,7 +43,7 @@ const Users = (props) => {
               ) : (
                 <button
                   onClick={() => {
-                    this.props.follow(user.id);
+                    props.follow(user.id);
                   }}
                 >
                   UnFollow
