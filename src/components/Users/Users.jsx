@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "./users.module.css";
+import userPhoto from "../../assets/images/user.png";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -14,7 +16,7 @@ const Users = (props) => {
             <span
               className={props.currentPage === p && styles.selectedPage}
               onClick={(e) => {
-                onPageChanged(p);
+                props.onPageChanged(p);
               }}
             >
               {p}

@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
 import axios from "axios";
 import React from "react";
-import styles from "./users.module.css";
-import userPhoto from "../../assets/images/user.png";
 import Users from "./Users";
 
 class UsersAPIComponent extends React.Component {
@@ -35,6 +32,8 @@ class UsersAPIComponent extends React.Component {
         currentPage={this.props.currentPage}
         onPageChanged={this.onPageChanged}
         users={this.props.users}
+        follow={this.props.follow}
+        unfollow={this.props.unfollow}
       />
     );
   }
