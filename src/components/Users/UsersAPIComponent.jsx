@@ -5,7 +5,6 @@ import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import Users from "./Users";
 
-
 class UsersAPIComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -29,8 +28,14 @@ class UsersAPIComponent extends React.Component {
       .then((response) => this.props.setUsers(response.data.items));
   };
   render() {
-
-    return <Users />;
+    return (
+      <Users
+        totalUsersCount={this.props.totalUsersCount}
+        pageSize={this.props.pageSize}
+        currentPage = {this.props.currentPage}
+        
+      />
+    );
   }
 }
 
