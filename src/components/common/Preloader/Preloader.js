@@ -1,4 +1,5 @@
-import preloader from '../../../assets/images/spinner.svg'
+import React from 'react'
+import preloader from '../../../assets/images/spinner.svg';
 
 const Preloader = (props) =>{
     return(
