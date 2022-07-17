@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
@@ -21,7 +22,7 @@ const App = (props) => {
         <div className='app-wrapper-conent'>
           <Routes>
             <Route path="/dialogs/*" element={<DialogsContainer />} />
-            <Route path="/profile/:userId?" element={<ProfileContainer />} />
+            <Route path="/profile/:id" element={<ProfileContainer />} />
             <Route path="/users" element={<UsersContainer />} />
           </Routes>
         </div>

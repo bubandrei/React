@@ -1,4 +1,5 @@
-import s from './Friends.module.css'
+import s from './Friends.module.css';
+import React from 'react';
 
 const Friends = (props) => {
     const nameFriend = props.state.map((name) => {
