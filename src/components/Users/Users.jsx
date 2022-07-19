@@ -50,11 +50,10 @@ const Users = (props) => {
                         }
                       )
                       .then((response) => {
-                        if(props.data.resultCode == 0){
+                        if(response.data.resultCode == 0){
                           props.follow(user.id)
                         }
                       });
-                    props.unfollow(user.id);
                   }}
                 >
                   Follow
@@ -70,12 +69,10 @@ const Users = (props) => {
                         }
                       )
                       .then((response) => {
-                        if(props.data.resultCode == 0){
+                        if(response.data.resultCode == 0){
                           props.follow(user.id)
                         }
                       });
-
-                    props.follow(user.id);
                   }}
                 >
                   UnFollow
