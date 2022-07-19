@@ -42,6 +42,18 @@ const Users = (props) => {
               {user.followed ? (
                 <button
                   onClick={() => {
+                    axios
+                      .post(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,{},
+                        {
+                          withCredentials: true,
+                        }
+                      )
+                      .then((response) => {
+                        if(props.data.resultCode == 0){
+                          props.follow(user.id)
+                        }
+                      });
                     props.unfollow(user.id);
                   }}
                 >
@@ -51,8 +63,8 @@ const Users = (props) => {
                 <button
                   onClick={() => {
                     axios
-                      .post(
-                        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,{},
+                      .delete(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
                         {
                           withCredentials: true,
                         }
