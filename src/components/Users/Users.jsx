@@ -44,39 +44,46 @@ const Users = (props) => {
                 <button
                   onClick={() => {
                     axios
-                      .post(
-                        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,{},
-                        {
-                          withCredentials: true,
-                        }
-                      )
-                      .then((response) => {
-                        if(response.data.resultCode == 0){
-                          props.follow(user.id)
-                        }
-                      });
-                  }}
-                >
-                  Follow
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    axios
                       .delete(
                         `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
                         {
                           withCredentials: true,
+                          headers: {
+                            API_KEY: "23f2dd55-6a90-4854-b9f9-31debfa61b5e",
+                          },
                         }
                       )
                       .then((response) => {
-                        if(response.data.resultCode == 0){
-                          props.follow(user.id)
+                        if (response.data.resultCode == 0) {
+                          props.unfollow(user.id);
                         }
                       });
                   }}
                 >
                   UnFollow
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    axios
+                      .post(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
+                        {},
+                        {
+                          withCredentials: true,
+                          headers: {
+                            API_KEY: "23f2dd55-6a90-4854-b9f9-31debfa61b5e",
+                          },
+                        }
+                      )
+                      .then((response) => {
+                        if (response.data.resultCode == 0) {
+                          props.follow(user.id);
+                        }
+                      });
+                  }}
+                >
+                  Follow
                 </button>
               )}
             </div>
