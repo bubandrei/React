@@ -49,11 +49,12 @@ const Users = (props) => {
                         {
                           withCredentials: true,
                           headers: {
-                            API_KEY: "23f2dd55-6a90-4854-b9f9-31debfa61b5e",
+                            "API-KEY": "65ca420f-073b-420c-98d1-8f92b7f78e0a"
                           },
                         }
                       )
                       .then((response) => {
+                        console.log(response)
                         if (response.data.resultCode == 0) {
                           props.unfollow(user.id);
                         }
@@ -72,11 +73,12 @@ const Users = (props) => {
                         {
                           withCredentials: true,
                           headers: {
-                            API_KEY: "23f2dd55-6a90-4854-b9f9-31debfa61b5e",
+                            "API-KEY": "65ca420f-073b-420c-98d1-8f92b7f78e0a"
                           },
                         }
                       )
                       .then((response) => {
+                        console.log(response)
                         if (response.data.resultCode == 0) {
                           props.follow(user.id);
                         }
