@@ -43,6 +43,7 @@ const Users = (props) => {
               {user.followed ? (
                 <button
                   onClick={() => {
+                    props.toggleFollowingProgress(true);
                     axios
                       .delete(
                         `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
