@@ -42,7 +42,7 @@ const Users = (props) => {
             <div>
               {user.followed ? (
                 <button
-                  disabled={props.followingInProgress}
+                  disabled={props.followingInProgress.some(id => id == user.id)}
                   onClick={() => {
                     props.toggleFollowingProgress(true);
                     axios
@@ -68,7 +68,7 @@ const Users = (props) => {
                 </button>
               ) : (
                 <button
-                  disabled={props.followingInProgress}
+                  disabled={props.followingInProgress.some(id => id == user.id)}
                   onClick={() => {
                     props.toggleFollowingProgress(true);
                     axios
