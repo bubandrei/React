@@ -67,7 +67,7 @@ export const toggleFollowingProgress = (isFetching, userId) => { return { type: 
 export const getUsersThunk = (dispatch) => {
     dispatch(toggleIsFetching(true));
     userAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
-        this.props.toggleIsFetching(false);
+        dispatch(toggleIsFetching(false));
         this.props.setUsers(data.items);
         this.props.setTotalUsersCount(data.totalCount);
     });
