@@ -65,7 +65,7 @@ export const toggleIsFetching = (isFetching) => { return { type: TOGGLE_IS_FETCH
 export const toggleFollowingProgress = (isFetching, userId) => { return { type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId } };
 
 export const getUsersThunk = (dispatch) => {
-    this.props.toggleIsFetching(true);
+    dispatch(toggleIsFetching(true));
     userAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
         this.props.toggleIsFetching(false);
         this.props.setUsers(data.items);
