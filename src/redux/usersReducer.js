@@ -68,7 +68,7 @@ export const getUsersThunk = (dispatch) => {
     dispatch(toggleIsFetching(true));
     userAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
         dispatch(toggleIsFetching(false));
-        this.props.setUsers(data.items);
+        dispatch(setUsers(data.items));
         this.props.setTotalUsersCount(data.totalCount);
     });
 }
