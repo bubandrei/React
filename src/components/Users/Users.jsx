@@ -71,6 +71,7 @@ const Users = (props) => {
                   disabled={props.followingInProgress.some(id => id == user.id)}
                   onClick={() => {
                     props.toggleFollowingProgress(true, user.id);
+                    usersAPI.follow(user.id)
                     axios
                       .post(
                         `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
