@@ -64,10 +64,10 @@ export const setTotalUsersCount = (totalUsersCount) => { return { type: SET_TOTA
 export const toggleIsFetching = (isFetching) => { return { type: TOGGLE_IS_FETCHING, isFetching } };
 export const toggleFollowingProgress = (isFetching, userId) => { return { type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId } };
 
-export const getUsersThunkCreator = () => {
+export const getUsersThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-        userAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
+        userAPI.getUsers(currentPage, pageSize).then((data) => {
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(data.items));
             dispatch(setTotalUsersCount(data.totalCount));
