@@ -20,7 +20,7 @@ class UsersContainer extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.getUsersThunkCreator();
+    this.props.getUsers(this.props.currentPage, this.props.pageSize);
     // this.props.toggleIsFetching(true);
     // userAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
     //   this.props.toggleIsFetching(false);
@@ -97,5 +97,5 @@ export default connect(mapStateToProps, {
   setTotalUsersCount,
   toggleIsFetching,
   toggleFollowingProgress,
-  getUsersThunkCreator
+  getUsers: getUsersThunkCreator()
 })(UsersContainer);
