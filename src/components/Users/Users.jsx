@@ -3,6 +3,7 @@ import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import { NavLink } from "react-router-dom";
 import * as axios from "axios";
+import { userAPI } from "../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -45,7 +46,7 @@ const Users = (props) => {
                   disabled={props.followingInProgress.some(id => id == user.id)}
                   onClick={() => {
                     props.toggleFollowingProgress(true, user.id);
-                    usersAPI.unfollow(user.id)
+                    userAPI.unfollow(user.id)
                       .then((response) => {
                         console.log(response);
                         if (response.data.resultCode == 0) {
@@ -62,7 +63,7 @@ const Users = (props) => {
                   disabled={props.followingInProgress.some(id => id == user.id)}
                   onClick={() => {
                     props.toggleFollowingProgress(true, user.id);
-                    usersAPI.follow(user.id)
+                    userAPI.follow(user.id)
                       .then((response) => {
                         console.log(response);
                         if (response.data.resultCode == 0) {
