@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
 import Profile from "../Profile";
-import { setUserProfile } from "../../../redux/profileReducer";
+import { getUserProfile } from "../../../redux/profileReducer";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { userAPI } from "../../../api/api";
 
@@ -36,6 +36,6 @@ let mapStateToProps = (state) => ({
 
 // let WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
-export default connect(mapStateToProps, { setUserProfile })(
+export default connect(mapStateToProps, { getUserProfile })(
   withRouter(ProfileContainer)
 );
