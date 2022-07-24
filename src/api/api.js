@@ -1,5 +1,5 @@
 import * as axios from "axios";
-import { follow, unfollow } from "../redux/usersReducer";
+
 
 const instance = axios.create({
     withCredentials: true,
