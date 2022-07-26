@@ -4,10 +4,17 @@ class ProfileStatus extends React.Component {
   state = {
     editMode: false,
   };
+  activateEditMode = () => {
+    alert("no");
+  };
   render() {
     return (
       <div>
-        {!this.state.editMode && <div>{this.props.status}</div>}
+        {!this.state.editMode && (
+          <div>
+            <span onClick={this.activateEditMode}>{this.props.status}</span>
+          </div>
+        )}
         {this.state.editMode && (
           <div>
             <input type="text" value={this.props.status} />
