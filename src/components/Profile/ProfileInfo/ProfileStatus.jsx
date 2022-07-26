@@ -4,15 +4,15 @@ class ProfileStatus extends React.Component {
   state = {
     editMode: false,
   };
-  activateEditMode = () => {
-    alert("no");
+  activateEditMode (){
+    this.state.editMode = true;
   };
   render() {
     return (
       <div>
         {!this.state.editMode && (
           <div>
-            <span onClick={this.activateEditMode}>{this.props.status}</span>
+            <span onClick={this.activateEditMode.bind(this)}>{this.props.status}</span>
           </div>
         )}
         {this.state.editMode && (
