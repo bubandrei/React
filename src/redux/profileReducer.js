@@ -60,6 +60,13 @@ export const getStatus = (userId) => (dispatch) => {
         dispatch(setStatus(response.data));
     });
 }
+export const updateStatus = (status) => (dispatch) => {
+    profileAPI.getStatus(status).then((response) => {
+        if(response.data.resultCode === 0){
+            dispatch(setStatus(response.data));
+        }
+    });
+}
 export const updateNewPostTextActionCreator = (text) => {
     return { type: UPDATE_NEW_TEXT, newText: text }
 }
