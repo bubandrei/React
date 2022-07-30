@@ -34,16 +34,6 @@ const MyPosts = (props) => {
       <Post key={index} message={el.message} count={el.count} id={el.id} />
     );
   });
-
-//   let newPostElement = React.createRef();
-//   let onAddPost = () => {
-//     props.addPost();
-//   };
-
-//   let onPostChange = () => {
-//     let text = newPostElement.current.value;
-//     props.updateNewPostText(text);
-//   };
   const addMyNewPost = (value) => {
     props.addPost(value.newMyPost);
   };
@@ -52,12 +42,6 @@ const MyPosts = (props) => {
       <h3>My posts</h3>
       <div>
         <AddMyPostsReduxForm onSubmit={addMyNewPost} />
-        {/* <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
-                </div>
-                <div>
-                    <button onClick={onAddPost}>Add post</button>
-                </div> */}
       </div>
       <div className={s.posts}>{postsElements}</div>
     </div>
