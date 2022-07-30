@@ -1,7 +1,6 @@
 import { profileAPI, userAPI } from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-// const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -10,7 +9,6 @@ let initialState = {
         { message: 'It\'s my first post!?!?!', count: 44, id: '1' },
         { message: 'Hi, how are you?', count: 77, id: '2' },
     ],
-    // newPostText: '',
     profile: null,
     status: ''
 }
@@ -29,12 +27,6 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: ''
             };
         }
-        // case UPDATE_NEW_TEXT: {
-        //     return {
-        //         ...state,
-        //         newPostText: action.newText
-        //     }
-        // }
         case SET_USER_PROFILE: {
             return { ...state, profile: action.profile }
         }
@@ -67,7 +59,4 @@ export const updateStatus = (status) => (dispatch) => {
         }
     });
 }
-// export const updateNewPostTextActionCreator = (text) => {
-//     return { type: UPDATE_NEW_TEXT, newText: text }
-// }
 export default profileReducer
