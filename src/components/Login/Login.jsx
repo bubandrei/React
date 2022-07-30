@@ -1,9 +1,10 @@
 import React from "react";
+import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 import { Field, reduxForm } from "redux-form";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
     return (
-        <form>
+        <form onSubmit={props.handleSubmit}>
             <div>
                 <Field name={"login"} placeholder={'Login'} component={"input"}/>
             </div>
@@ -25,6 +26,7 @@ const LoginReduxForm = reduxForm({
 })(LoginForm);
 
 const Login = () => {
+
     return (
         <>
             <h1>LOGIN</h1>
