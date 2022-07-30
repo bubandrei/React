@@ -15,11 +15,14 @@ const DilogsForm = (props) => {
       <Field
         name={"message"}
         placeholder="enter your message"
-        component={"input"}
+        component={"textarea"}
         type={"textarea"}
         // value={newMessageBody}
         // onChange={onNewMessageChange}
       ></Field>
+      <div>
+        <button>Send message</button>
+      </div>
     </form>
   );
 };
@@ -29,9 +32,10 @@ const DilogsReduxForm = reduxForm({
 })(DilogsForm);
 
 const Dialogs = (props) => {
-const onSubmit = (formData) =>{
-  console.log(formData)
-}
+  const onSubmit = (formData) => {
+    props.sendMessage();
+    console.log(formData);
+  };
 
   let state = props.dialogsPage;
 
@@ -42,9 +46,9 @@ const onSubmit = (formData) =>{
     return <Message key={index} id={el.id} message={el.message} />;
   });
   let newMessageBody = state.newMessageBody;
-  let onSendMessageClick = () => {
-    props.sendMessage();
-  };
+  // let onSendMessageClick = () => {
+  //   props.sendMessage();
+  // };
   let onNewMessageChange = (e) => {
     let body = e.target.value;
     props.updateNewMessageBody(body);
@@ -68,9 +72,9 @@ const onSubmit = (formData) =>{
               onChange={onNewMessageChange}
             ></Field>
           </form> */}
-          <div>
+          {/* <div>
             <button onClick={onSendMessageClick}>Send message</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
