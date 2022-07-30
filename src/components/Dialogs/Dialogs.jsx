@@ -29,6 +29,10 @@ const DilogsReduxForm = reduxForm({
 })(DilogsForm);
 
 const Dialogs = (props) => {
+const onSubmit = (formData) =>{
+  console.log(formData)
+}
+
   let state = props.dialogsPage;
 
   let dialogsElements = state.dialogs.map((el, index) => {
@@ -54,7 +58,7 @@ const Dialogs = (props) => {
       <div className={s.messages}>
         {messageElements}
         <div>
-          <DilogsForm />
+          <DilogsReduxForm onSubmit={onSubmit} />
           {/* <form>
             <Field
               name={"message"}
