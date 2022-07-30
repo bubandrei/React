@@ -9,11 +9,11 @@ import {
 } from "../../redux/dialogsReducer";
 import { Field, reduxForm } from "redux-form";
 
-const DilogsForm = (props) => {
+const AddMessageForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
-        name={"message"}
+        name={"newMessageBody"}
         placeholder="enter your message"
         component={"textarea"}
         type={"textarea"}
@@ -27,14 +27,16 @@ const DilogsForm = (props) => {
   );
 };
 
-const DilogsReduxForm = reduxForm({
-  form: "message",
-})(DilogsForm);
+const AddMessageReduxForm = reduxForm({
+  form: "dialogAddMessageForm",
+})(AddMessageForm);
 
 const Dialogs = (props) => {
-  const onSubmit = (formData) => {
+  // debugger
+  const addNewMessage = (formData) => {
     props.sendMessage();
-    console.log(formData);
+    props.updateNewMessageBody(formData.newMessageBody);
+    console.log(formData.newMessageBody);
   };
 
   let state = props.dialogsPage;
@@ -49,10 +51,10 @@ const Dialogs = (props) => {
   // let onSendMessageClick = () => {
   //   props.sendMessage();
   // };
-  let onNewMessageChange = (e) => {
-    let body = e.target.value;
-    props.updateNewMessageBody(body);
-  };
+  // let onNewMessageChange = (e) => {
+  //   let body = e.target.value;
+  //   props.updateNewMessageBody(body);
+  // };
 
   if (!props.isAuth) return <Navigate to={"/login"} />;
 
@@ -62,7 +64,7 @@ const Dialogs = (props) => {
       <div className={s.messages}>
         {messageElements}
         <div>
-          <DilogsReduxForm onSubmit={onSubmit} />
+          <AddMessageReduxForm onSubmit={addNewMessage} />
           {/* <form>
             <Field
               name={"message"}
