@@ -32,8 +32,6 @@ const AddMessageReduxForm = reduxForm({
 const Dialogs = (props) => {
   const addNewMessage = (value) => {
     props.sendMessage(value.newMessageBody);
-    props.updateNewMessageBody(value.newMessageBody);
-    console.log(value.newMessageBody);
   };
 
   let state = props.dialogsPage;
