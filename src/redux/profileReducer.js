@@ -10,16 +10,17 @@ let initialState = {
         { message: 'It\'s my first post!?!?!', count: 44, id: '1' },
         { message: 'Hi, how are you?', count: 77, id: '2' },
     ],
-    newPostText: 'ManUTD',
+    newPostText: '',
     profile: null,
     status: ''
 }
 
 const profileReducer = (state = initialState, action) => {
+    // debugger
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
-                message: state.newPostText,
+                message: action.newPost,
                 count: 12,
                 id: '3'
             };
@@ -28,12 +29,6 @@ const profileReducer = (state = initialState, action) => {
                 posts: [...state.posts, newPost],
                 newPostText: ''
             };
-        }
-        case UPDATE_NEW_TEXT: {
-            return {
-                ...state,
-                newPostText: action.newText
-            }
         }
         case SET_USER_PROFILE: {
             return { ...state, profile: action.profile }
@@ -45,8 +40,8 @@ const profileReducer = (state = initialState, action) => {
             return state;
     }
 }
-export const addPostActionCreate = () => {
-    return { type: ADD_POST }
+export const addPostActionCreate = (newPost) => {
+    return { type: ADD_POST, newPost}
 }
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status })
