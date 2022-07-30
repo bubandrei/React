@@ -1,10 +1,10 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import {
-  addPostActionCreate,
-  updateNewPostTextActionCreator,
-} from "../../../redux/profileReducer";
+// import {
+//   addPostActionCreate,
+//   updateNewPostTextActionCreator,
+// } from "../../../redux/profileReducer";
 import { Field, reduxForm } from "redux-form";
 
 const AddMyPostsForm = (props) => {
