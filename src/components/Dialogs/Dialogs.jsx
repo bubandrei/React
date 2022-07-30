@@ -7,6 +7,21 @@ import {
   sendMessageCreator,
   updateNewMessageBodyCreator,
 } from "../../redux/dialogsReducer";
+import { Field, reduxForm } from "redux-form";
+
+const DilogsForm = (props) => {
+  return (
+    <form>
+      <Field
+        name={"message"}
+        placeholder="enter your message"
+        component={"input"}
+        // value={newMessageBody}
+        // onChange={onNewMessageChange}
+      ></Field>
+    </form>
+  );
+};
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
@@ -25,8 +40,8 @@ const Dialogs = (props) => {
     let body = e.target.value;
     props.updateNewMessageBody(body);
   };
-  
-  if(!props.isAuth) return <Navigate to={"/login"}/>;
+
+  if (!props.isAuth) return <Navigate to={"/login"} />;
 
   return (
     <div className={s.dialogs}>
@@ -34,13 +49,16 @@ const Dialogs = (props) => {
       <div className={s.messages}>
         {messageElements}
         <div>
-          <div>
-            <textarea
+          <DilogsForm />
+          {/* <form>
+            <Field
+              name={"message"}
               placeholder="enter your message"
+              component={"input"}
               value={newMessageBody}
               onChange={onNewMessageChange}
-            ></textarea>
-          </div>
+            ></Field>
+          </form> */}
           <div>
             <button onClick={onSendMessageClick}>Send message</button>
           </div>
