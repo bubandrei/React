@@ -17,8 +17,6 @@ const AddMessageForm = (props) => {
         placeholder="enter your message"
         component={"textarea"}
         type={"textarea"}
-        // value={newMessageBody}
-        // onChange={onNewMessageChange}
       ></Field>
       <div>
         <button>Send message</button>
@@ -32,7 +30,6 @@ const AddMessageReduxForm = reduxForm({
 })(AddMessageForm);
 
 const Dialogs = (props) => {
-  // debugger
   const addNewMessage = (value) => {
     props.sendMessage(value.newMessageBody);
     props.updateNewMessageBody(value.newMessageBody);
@@ -48,13 +45,6 @@ const Dialogs = (props) => {
     return <Message key={index} id={el.id} message={el.message} />;
   });
   let newMessageBody = state.newMessageBody;
-  // let onSendMessageClick = () => {
-  //   props.sendMessage();
-  // };
-  // let onNewMessageChange = (e) => {
-  //   let body = e.target.value;
-  //   props.updateNewMessageBody(body);
-  // };
 
   if (!props.isAuth) return <Navigate to={"/login"} />;
 
@@ -65,18 +55,6 @@ const Dialogs = (props) => {
         {messageElements}
         <div>
           <AddMessageReduxForm onSubmit={addNewMessage} />
-          {/* <form>
-            <Field
-              name={"message"}
-              placeholder="enter your message"
-              component={"input"}
-              value={newMessageBody}
-              onChange={onNewMessageChange}
-            ></Field>
-          </form> */}
-          {/* <div>
-            <button onClick={onSendMessageClick}>Send message</button>
-          </div> */}
         </div>
       </div>
     </div>
