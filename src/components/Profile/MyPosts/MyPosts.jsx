@@ -15,13 +15,9 @@ const AddMyPostsForm = (props) => {
           name={"newMyPost"}
           component={"textarea"}
           type={"textarea"}
-        //   onChange={onPostChange}
-        //   ref={newPostElement}
-        //   value={props.newPostText}
         />
       </div>
       <div>
-        {/* <button onClick={onAddPost}>Add post</button> */}
         <button>Add post</button>
       </div>
     </form>
@@ -48,8 +44,8 @@ const MyPosts = (props) => {
 //     let text = newPostElement.current.value;
 //     props.updateNewPostText(text);
 //   };
-  const addMyNewPost = (data) => {
-    console.log(data);
+  const addMyNewPost = (value) => {
+    props.addPost(value.newMyPost);
   };
   return (
     <div className={s.postsBlock}>
