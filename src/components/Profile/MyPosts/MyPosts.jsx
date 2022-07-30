@@ -12,6 +12,9 @@ const AddMyPostsForm = (props) => {
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
+          name={"newMyPost"}
+          component={"textarea"}
+          type={"textarea"}
           onChange={onPostChange}
           ref={newPostElement}
           value={props.newPostText}
@@ -44,10 +47,14 @@ const MyPosts = (props) => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text);
   };
+  const addMyNewPost = (data) => {
+    console.log(data);
+  };
   return (
     <div className={s.postsBlock}>
       <h3>My posts</h3>
       <div>
+        <AddMyPostsForm onSubmit={addMyNewPost} />
         {/* <div>
                     <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
                 </div>
