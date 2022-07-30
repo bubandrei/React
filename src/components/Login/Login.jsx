@@ -22,13 +22,13 @@ const LoginForm = () => {
 
 const LoginReduxForm = reduxForm({
     form: 'login'
-})(ContactForm);
+})(LoginForm);
 
 const Login = () => {
     return (
         <>
             <h1>LOGIN</h1>
-            <LoginForm />
+            <LoginReduxForm />
         </>
 
     )
