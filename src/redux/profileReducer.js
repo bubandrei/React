@@ -1,7 +1,7 @@
 import { profileAPI, userAPI } from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
+// const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
