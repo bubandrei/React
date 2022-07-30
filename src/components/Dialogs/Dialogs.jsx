@@ -11,17 +11,22 @@ import { Field, reduxForm } from "redux-form";
 
 const DilogsForm = (props) => {
   return (
-    <form>
+    <form onSubmit={props.handleSubmit}>
       <Field
         name={"message"}
         placeholder="enter your message"
         component={"input"}
+        type={"textarea"}
         // value={newMessageBody}
         // onChange={onNewMessageChange}
       ></Field>
     </form>
   );
 };
+
+const DilogsReduxForm = reduxForm({
+  form: "message",
+})(DilogsForm);
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
