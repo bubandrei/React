@@ -1,9 +1,9 @@
 import React from "react";
 
-const Textarea = (props) => {
+export const Textarea = (props) => {
     return (
         <div>
-            <textarea />
+            <textarea {...props}/>
         </div>
     )
 }
