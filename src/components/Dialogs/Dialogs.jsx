@@ -5,6 +5,7 @@ import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import { Field, reduxForm } from "redux-form";
 import { Textarea } from "../common/FormControls/FormsControl";
+import { maxLengthCreator, required } from "../../utils/validators/validators";
 
 const maxLength = maxLengthCreator(10);
 
