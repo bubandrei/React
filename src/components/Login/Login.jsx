@@ -12,7 +12,7 @@ const LoginForm = (props) => {
                 <Field name={"email"} placeholder={'Email'} component={Input} validate={[required]}/>
             </div>
             <div>
-                <Field  name={"password"} placeholder={'Password'} component={Input} validate={[required]}/>
+                <Field  name={"password"} placeholder={'Password'} component={Input} validate={[required]} type={"password"}/>
             </div>
             <div>
                 <Field name={"remeber me"} type={'checkbox'} component={"input"}/> remeber me
@@ -28,9 +28,9 @@ const LoginReduxForm = reduxForm({
     form: 'login'
 })(LoginForm);
 
-const Login = () => {
+const Login = (props) => {
     const onSubmit = (formData) =>{
-        console.log(formData)
+        props.login(formData.email, formData.password, formData.remeberMe)
     }
 
     return (
@@ -42,4 +42,4 @@ const Login = () => {
     )
 }
 
-export default connect(null,{})(Login)
+export default connect(null,{login})(Login)
