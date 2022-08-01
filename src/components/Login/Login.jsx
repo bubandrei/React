@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 import { Field, reduxForm } from "redux-form";
 import { required } from "../../utils/validators/validators";
@@ -8,7 +9,7 @@ const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field name={"login"} placeholder={'Login'} component={Input} validate={[required]}/>
+                <Field name={"email"} placeholder={'Email'} component={Input} validate={[required]}/>
             </div>
             <div>
                 <Field  name={"password"} placeholder={'Password'} component={Input} validate={[required]}/>
@@ -41,4 +42,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default connect(null,{})(Login)
