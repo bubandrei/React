@@ -4,6 +4,7 @@ import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 import { Field, reduxForm } from "redux-form";
 import { required } from "../../utils/validators/validators";
 import { Input } from "../common/FormControls/FormsControl";
+import { login } from "../../redux/authReducer";
 
 const LoginForm = (props) => {
     return (
