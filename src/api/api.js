@@ -35,13 +35,13 @@ export const profileAPI = {
         return instance
             .get(`profile/` + userId)
     },
-    getStatus(userId){
+    getStatus(userId) {
         return instance
-        .get(`profile/status/` + userId )
+            .get(`profile/status/` + userId)
     },
-    updateStatus(status){
+    updateStatus(status) {
         return instance
-        .put(`profile/status/`, {status: status} )
+            .put(`profile/status/`, { status: status })
     }
 }
 
@@ -50,8 +50,8 @@ export const authAPI = {
         return instance
             .get(`auth/me`)
     },
-    login(){
-        return instance.post(`auth/login`, {})
+    login(email, password, remeberMe = false) {
+        return instance.post(`auth/login`, { email, password, remeberMe })
     }
 }
 
