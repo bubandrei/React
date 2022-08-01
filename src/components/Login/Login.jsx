@@ -5,6 +5,7 @@ import { Field, reduxForm } from "redux-form";
 import { required } from "../../utils/validators/validators";
 import { Input } from "../common/FormControls/FormsControl";
 import { login } from "../../redux/authReducer";
+import { Navigate } from "react-router-dom";
 
 const LoginForm = (props) => {
   return (
@@ -46,7 +47,7 @@ const Login = (props) => {
     props.login(formData.email, formData.password, formData.remeberMe);
   };
   if (props.isAuth) {
-    return <Redirect to={"/profile"} />;
+    return <Navigate to={"/profile"} />;
   }
 
   return (
