@@ -7,18 +7,19 @@ import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileInfo/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
-
+import { connect } from 'react-redux';
+import { getAuthUserData } from './redux/authReducer';
 
 class App extends Component {
   componentDidMount() {
     this.props.getAuthUserData();
   }
-  render(){
+  render() {
     return (
       <BrowserRouter>
         <div className='app-wrapper'>
           <HeaderContainer />
-          <Navbar/>
+          <Navbar />
           <div className='app-wrapper-conent'>
             <Routes>
               <Route path="/dialogs/*" element={<DialogsContainer />} />
@@ -34,4 +35,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default 
+  connect(null, { getAuthUserData })(App)
+
