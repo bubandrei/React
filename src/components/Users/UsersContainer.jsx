@@ -12,7 +12,7 @@ import Preloader from "../common/Preloader/Preloader";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import {
-  getAllUsers,
+  getUsers,
   getPageSize,
   getTotalUserCount,
   getCurrentPage,
