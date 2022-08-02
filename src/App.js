@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import { getAuthUserData } from './redux/authReducer';
 import { initializeApp } from './redux/appReducer';
+import Preloader from './components/common/Preloader/Preloader';
 
 
 class App extends Component {
@@ -17,6 +18,9 @@ class App extends Component {
     this.props.initializeApp();
   }
   render() {
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
     return (
       <BrowserRouter>
         <div className='app-wrapper'>
