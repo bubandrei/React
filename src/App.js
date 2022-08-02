@@ -9,10 +9,12 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import { getAuthUserData } from './redux/authReducer';
+import { initializeApp } from './redux/appReducer';
+
 
 class App extends Component {
   componentDidMount() {
-    this.props.getAuthUserData();
+    this.props.initializeApp();
   }
   render() {
     return (
@@ -35,6 +37,10 @@ class App extends Component {
   }
 }
 
-export default 
-  connect(null, { getAuthUserData })(App)
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default
+  connect(mapStateToProps, { initializeApp })(App)
 
