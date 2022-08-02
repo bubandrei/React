@@ -11,7 +11,14 @@ import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { getAllUsers } from "../../redux/usersSelector";
+import {
+  getAllUsers,
+  getPageSize,
+  getTotalUserCount,
+  getCurrentPage,
+  getIsFetching,
+  getFollowingInProgress,
+} from "../../redux/usersSelector";
 
 class UsersContainer extends React.Component {
   constructor(props) {
@@ -45,11 +52,11 @@ class UsersContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     users: getAllUsers(state),
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress,
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUserCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state),
   };
 };
 
