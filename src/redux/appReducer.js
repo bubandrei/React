@@ -1,31 +1,26 @@
 import React from "react";
 
-const SET_USER_DATA = 'SET_USER_DATA';
+const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 
 let initialState = {
-
+    initialized: false
 }
 
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_USER_DATA:
+        case INITIALIZED_SUCCESS:
             return {
                 ...state,
-                ...action.payload,
+                initialized: true,
             }
         default:
             return state;
     }
 }
 
-export const setAuthUserData = (userId, email, login, isAuth) => ({ type: SET_USER_DATA})
-export const getAuthUserData = () => (dispatch) => {
-    authAPI.me().then((response) => {
-        if (response.data.resultCode === 0) {
-            let { id, email, login } = response.data.data;
-            dispatch(setAuthUserData(id, email, login, true));
-        }
-    });
+export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS })
+export const initialize = () => (dispatch) => {
+
 }
 
 export default appReducer;
