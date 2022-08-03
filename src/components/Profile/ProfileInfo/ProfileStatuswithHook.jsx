@@ -1,10 +1,15 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const ProfileStatusWithHook = (props) => {
 
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
+
+  useEffect(()=>{
+    setStatus(props.status)
+  },[props.status])
 
   const activateEditMode = () => {
     setEditMode(!editMode);
