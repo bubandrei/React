@@ -8,23 +8,27 @@ const ProfileStatusWithHook = (props) => {
   const activateEditMode = () => {
     setEditMode(!editMode);
   };
+  const onStatusChange = (e) => {
+    console.log(e);
+    setStatus(e.currentTarget.value);
+  };
   return (
     <div>
       {!editMode && (
         <div>
           <span onClick={() => activateEditMode()}>
-            {props.status || "-------"}yo
+            {props.status || "-------"}
           </span>
         </div>
       )}
       {editMode && (
         <div>
           <input
-            onChange={""}
+            onChange={(e) => onStatusChange(e)}
             autoFocus={true}
             onBlur={() => activateEditMode()}
             type="text"
-            value={""}
+            value={status}
           />
         </div>
       )}
