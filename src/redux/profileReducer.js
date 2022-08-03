@@ -10,7 +10,7 @@ let initialState = {
         { message: 'Hi, how are you?', count: 77, id: '2' },
     ],
     profile: null,
-    status: ''
+    status: 'HELLO'
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -31,6 +31,7 @@ const profileReducer = (state = initialState, action) => {
             return { ...state, profile: action.profile }
         }
         case SET_STATUS: {
+            // debugger
             return { ...state, status: action.status }
         }
         default:
@@ -48,16 +49,15 @@ export const getUserProfile = (userId) => (dispatch) => {
     });
 };
 export const getStatus = (userId) => (dispatch) => {
-    debugger
     profileAPI.getStatus(userId).then((response) => {
-        debugger
         dispatch(setStatus(response.data));
     });
 }
 export const updateStatus = (status) => (dispatch) => {
-    profileAPI.getStatus(status).then((response) => {
+    // debugger
+    profileAPI.updateStatus(status).then((response) => {
         if(response.data.resultCode === 0){
-            dispatch(setStatus(response.data));
+            dispatch(setStatus(status));
         }
     });
 }
