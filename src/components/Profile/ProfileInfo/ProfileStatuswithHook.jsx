@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const ProfileStatusWithHook = (props) => {
   const [editMode, setEditMode] = useState(false);
+  const [status, setStatus] = useState(props.status);
 
   const activateEditMode = () => {
     setEditMode(!editMode);
