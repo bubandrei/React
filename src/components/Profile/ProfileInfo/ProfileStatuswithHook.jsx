@@ -8,9 +8,7 @@ const ProfileStatusWithHook = (props) => {
 
   const activateEditMode = () => {
     setEditMode(!editMode);
-    // debugger
     if (editMode) {
-      // debugger
       props.updateStatus(status);
     }
   };

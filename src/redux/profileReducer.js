@@ -31,7 +31,6 @@ const profileReducer = (state = initialState, action) => {
             return { ...state, profile: action.profile }
         }
         case SET_STATUS: {
-            // debugger
             return { ...state, status: action.status }
         }
         default:
@@ -54,7 +53,6 @@ export const getStatus = (userId) => (dispatch) => {
     });
 }
 export const updateStatus = (status) => (dispatch) => {
-    // debugger
     profileAPI.updateStatus(status).then((response) => {
         if(response.data.resultCode === 0){
             dispatch(setStatus(status));
