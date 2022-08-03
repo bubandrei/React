@@ -3,19 +3,25 @@ import { useState } from "react";
 
 const ProfileStatusWithHook = (props) => {
   const [editMode, setEditMode] = useState(false);
+
+  const activateEditMode = () => {
+    setEditMode(!editMode);
+  };
   return (
     <div>
-      {true && (
+      {!editMode && (
         <div>
-          <span onClick={""}>{props.status || "-------"}yo</span>
+          <span onClick={() => activateEditMode()}>
+            {props.status || "-------"}yo
+          </span>
         </div>
       )}
-      {false && (
+      {editMode && (
         <div>
           <input
             onChange={""}
             autoFocus={true}
-            onBlur={""}
+            onBlur={() => activateEditMode()}
             type="text"
             value={""}
           />
