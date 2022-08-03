@@ -2,14 +2,19 @@ import React from "react";
 import { useState } from "react";
 
 const ProfileStatusWithHook = (props) => {
+
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
 
   const activateEditMode = () => {
     setEditMode(!editMode);
+    debugger
+    if (editMode) {
+      debugger
+      props.updateStatus(status);
+    }
   };
   const onStatusChange = (e) => {
-    console.log(e);
     setStatus(e.currentTarget.value);
   };
   return (
