@@ -25,3 +25,12 @@ it('message of new post should be ', () => {
     // 3. expect
     expect(newState.posts[2].message).toBe('My new post');
 })
+
+// 2. action
+it('after delete length must decrement', () => {
+    let action = deletePost(1);
+    let newState = profileReducer(state, action)
+
+    // 3. expect
+    expect(newState.posts.length).toBe(2);
+})
