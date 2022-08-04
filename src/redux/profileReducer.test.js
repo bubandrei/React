@@ -16,3 +16,12 @@ it('new post should be added', () => {
     // 3. expect
     expect(newState.posts.length).toBe(3);
 })
+
+// 2. action
+it('message of new post should be ', () => {
+    let action = addPostActionCreate('My new post');
+    let newState = profileReducer(state, action)
+
+    // 3. expect
+    expect(newState.posts[2].message).toBe('My new post');
+})
