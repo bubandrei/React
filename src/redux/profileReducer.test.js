@@ -12,6 +12,7 @@ let state = {
 it('new post should be added', () => {
     let action = addPostActionCreate('My new post');
     let newState = profileReducer(state, action)
+
+    // 3. expect
+    expect(newState.posts.length).toBe(3);
 })
-// 3. expect
-newState.posts.length === 3 
