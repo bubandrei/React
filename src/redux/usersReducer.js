@@ -80,7 +80,7 @@ export const requestUsers = (page, pageSize) => {
 export const follow = (userId) => {
     return async (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));
-        let response = userAPI.follow(userId);
+        let response = await userAPI.follow(userId);
             if (response.data.resultCode == 0) {
               dispatch(followSucces(userId));
             }
@@ -91,7 +91,7 @@ export const follow = (userId) => {
 export const unfollow = (userId) => {
     return async (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));
-      let response =  userAPI.unfollow(userId);
+      let response =  await userAPI.unfollow(userId);
             if (response.data.resultCode == 0) {
               dispatch(unfollowSucces(userId));
             }
