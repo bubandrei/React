@@ -40,12 +40,11 @@ export const login = (email, password, remeberMe) => async (dispatch) => {
         dispatch(stopSubmit("login", { _error: message }));
     }
 }
-export const logout = () => (dispatch) => {
-    authAPI.logout().then((response) => {
-        if (response.data.resultCode === 0) {
-            dispatch(setAuthUserData(null, null, null, false));
-        };
-    })
+export const logout = () => async (dispatch) => {
+    let response = await authAPI.logout();
+    if (response.data.resultCode === 0) {
+        dispatch(setAuthUserData(null, null, null, false));
+    };
 }
 
 
