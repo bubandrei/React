@@ -78,30 +78,24 @@ export const requestUsers = (page, pageSize) => {
 }
 
 export const follow = (userId) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));
-        userAPI.follow(userId)
-          .then((response) => {
-            console.log(response);
+        let response = userAPI.follow(userId);
             if (response.data.resultCode == 0) {
               dispatch(followSucces(userId));
             }
             dispatch(toggleFollowingProgress(false, userId));
-          });
     }
 }
 
 export const unfollow = (userId) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));
-        userAPI.unfollow(userId)
-          .then((response) => {
-            console.log(response);
+      let response =  userAPI.unfollow(userId);
             if (response.data.resultCode == 0) {
               dispatch(unfollowSucces(userId));
             }
             dispatch(toggleFollowingProgress(false, userId));
-          });
     }
 }
 
