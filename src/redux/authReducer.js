@@ -31,15 +31,14 @@ export const getAuthUserData = () => async (dispatch) => {
         dispatch(setAuthUserData(id, email, login, true));
     }
 }
-export const login = (email, password, remeberMe) => (dispatch) => {
-    authAPI.login(email, password, remeberMe).then((response) => {
-        if (response.data.resultCode === 0) {
-            dispatch(getAuthUserData())
-        } else {
-            let message = response.data.message > 0 ? response.data.message[0] : "Some error";
-            dispatch(stopSubmit("login", { _error: message }));
-        }
-    })
+export const login = (email, password, remeberMe) => async (dispatch) => {
+    let response = await authAPI.login(email, password, remeberMe);
+    if (response.data.resultCode === 0) {
+        dispatch(getAuthUserData())
+    } else {
+        let message = response.data.message > 0 ? response.data.message[0] : "Some error";
+        dispatch(stopSubmit("login", { _error: message }));
+    }
 }
 export const logout = () => (dispatch) => {
     authAPI.logout().then((response) => {
