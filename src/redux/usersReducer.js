@@ -67,14 +67,13 @@ export const toggleIsFetching = (isFetching) => { return { type: TOGGLE_IS_FETCH
 export const toggleFollowingProgress = (isFetching, userId) => { return { type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId } };
 
 export const requestUsers = (page, pageSize) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true));
         dispatch(setCurrentPage(page));
-        userAPI.getUsers(page, pageSize).then((data) => {
+      let data = await  userAPI.getUsers(page, pageSize);
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(data.items));
             dispatch(setTotalUsersCount(data.totalCount));
-        });
     }
 }
 
