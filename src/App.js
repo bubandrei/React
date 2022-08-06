@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
@@ -29,14 +29,15 @@ class App extends Component {
           <HeaderContainer />
           <Navbar />
           <div className='app-wrapper-conent'>
-
-            <Routes>
-              <Route path="/dialogs/*" element={<DialogsContainer />} />
-              <Route path='/profile/:userId' element={<ProfileContainer />} />
-              <Route path='/profile' element={<ProfileContainer />} />
-              <Route path="/users" element={<UsersContainer />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
+            <Suspense fallback={<div><Preloader /></div>}>
+              <Routes>
+                <Route path="/dialogs/*" element={<DialogsContainer />} />
+                <Route path='/profile/:userId' element={<ProfileContainer />} />
+                <Route path='/profile' element={<ProfileContainer />} />
+                <Route path="/users" element={<UsersContainer />} />
+                <Route path="/login" element={<Login />} />
+              </Routes>
+            </Suspense>
           </div>
         </div>
       </BrowserRouter>
