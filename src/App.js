@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
+
 import UsersContainer from './components/Users/UsersContainer';
-import ProfileContainer from './components/Profile/ProfileInfo/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import { getAuthUserData } from './redux/authReducer';
 import { initializeApp } from './redux/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
+
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileInfo/ProfileContainer'));
 
 
 class App extends Component {
@@ -27,6 +29,7 @@ class App extends Component {
           <HeaderContainer />
           <Navbar />
           <div className='app-wrapper-conent'>
+
             <Routes>
               <Route path="/dialogs/*" element={<DialogsContainer />} />
               <Route path='/profile/:userId' element={<ProfileContainer />} />
