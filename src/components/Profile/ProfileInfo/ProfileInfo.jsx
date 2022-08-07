@@ -7,7 +7,7 @@ import ProfileStatusWithHook from "./ProfileStatuswithHook";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner}) => {
-  debugger
+  // debugger
   if (!profile) {
     return <Preloader />;
   }
