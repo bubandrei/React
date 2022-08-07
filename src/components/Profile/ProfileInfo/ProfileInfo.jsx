@@ -6,19 +6,28 @@ import userPhoto from "../../../assets/images/myAva.jpeg";
 import ProfileStatusWithHook from "./ProfileStatuswithHook";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner}) => {
-  debugger
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
+  debugger;
   if (!profile) {
     return <Preloader />;
   }
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0]);
+    }
+  };
   return (
     <div>
       {/* <div>
         <img src="http://az837918.vo.msecnd.net/publishedimages/articles/1733/en-CA/images/1/free-download-this-stunning-alberta-scene-for-your-device-background-image-L-6.jpg"></img>
       </div> */}
       <div className={s.discriptionBlock}>
-        <img src={profile.photos.large || userPhoto} alt="" className={s.mainPhoto} />
-        {isOwner && <input type={"file"}/>}
+        <img
+          src={profile.photos.large || userPhoto}
+          alt=""
+          className={s.mainPhoto}
+        />
+        {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
         <ProfileStatusWithHook status={status} updateStatus={updateStatus} />
       </div>
     </div>
