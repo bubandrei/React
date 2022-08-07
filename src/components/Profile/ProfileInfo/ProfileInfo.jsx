@@ -4,8 +4,9 @@ import s from "./ProfileInfo.module.css";
 import ProfileStatus from "./ProfileStatus";
 import userPhoto from "../../../assets/images/user.png";
 import ProfileStatusWithHook from "./ProfileStatuswithHook";
+import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner}) => {
   if (!profile) {
     return <Preloader />;
   }
@@ -16,6 +17,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
       </div>
       <div className={s.discriptionBlock}>
         <img src={profile.photos.large || userPhoto} alt="" className={s.mainPhoto} />
+        {isOwner && <input type={"file"}/>}
         <ProfileStatusWithHook status={status} updateStatus={updateStatus} />
       </div>
     </div>
