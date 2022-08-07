@@ -2,9 +2,10 @@ import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
 import ProfileStatus from "./ProfileStatus";
+import userPhoto from "../../../assets/images/user.png";
 import ProfileStatusWithHook from "./ProfileStatuswithHook";
 
-const ProfileInfo = (profile, status, updateStatus) => {
+const ProfileInfo = ({profile, status, updateStatus}) => {
   if (!profile) {
     return <Preloader />;
   }
