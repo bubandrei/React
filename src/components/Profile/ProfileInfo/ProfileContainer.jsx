@@ -5,6 +5,7 @@ import {
   getStatus,
   getUserProfile,
   updateStatus,
+  savePhoto
 } from "../../../redux/profileReducer";
 import {
   useParams,

@@ -39,7 +39,7 @@ const profileReducer = (state = initialState, action) => {
             return { ...state, posts: state.posts.filter(p => p.id != action.postId) }
         }
         case SAVE_PHOTO_SUCCES: {
-            return { ...state, profile: { ...profile, photos: action.photos } }
+            return { ...state, profile: { ...state.profile, photos: action.photos } }
         }
         default:
             return state;
