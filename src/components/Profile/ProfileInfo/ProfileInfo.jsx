@@ -6,6 +6,7 @@ import userPhoto from "../../../assets/images/user.png";
 import ProfileStatusWithHook from "./ProfileStatuswithHook";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 import { useState } from "react";
+import ProfileDataForm from "./ProfilDataForm";
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
   const [editMode, setEditMode] = useState(false);
@@ -85,16 +86,16 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
     </div>
   );
 };
-const ProfileDataForm = ({ profile, goToEditMode }) => {
-  return (
-    <div>
-      <div>form</div>
-      <div>
-        <button onClick={goToEditMode}>edit</button>
-      </div>
-    </div>
-  );
-};
+// const ProfileDataForm = ({ profile, goToEditMode }) => {
+//   return (
+//     <div>
+//       <div>form</div>
+//       <div>
+//         <button onClick={goToEditMode}>edit</button>
+//       </div>
+//     </div>
+//   );
+// };
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
