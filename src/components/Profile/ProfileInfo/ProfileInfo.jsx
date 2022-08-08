@@ -5,9 +5,14 @@ import ProfileStatus from "./ProfileStatus";
 import userPhoto from "../../../assets/images/user.png";
 import ProfileStatusWithHook from "./ProfileStatuswithHook";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
+import { useState } from "react";
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
-  // debugger;
+  const [editMode, setEditMode] = useState(false);
+  const goToEditMode = () => {
+    setEditMode(!editMode);
+  };
+
   if (!profile) {
     return <Preloader />;
   }
@@ -28,16 +33,29 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
           className={s.mainPhoto}
         />
         {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
-        <ProfileData />
+        {editMode ? (
+          <ProfileDataForm profile={profile}  goToEditMode={goToEditMode}/>
+        ) : (
+          <ProfileData
+            profile={profile}
+            isOwner={isOwner}
+            goToEditMode={goToEditMode}
+          />
+        )}
         <ProfileStatusWithHook status={status} updateStatus={updateStatus} />
       </div>
     </div>
   );
 };
 
-const ProfileData = (profile) => {
+const ProfileData = ({ profile, isOwner, goToEditMode }) => {
   return (
     <div>
+      {isOwner && (
+        <div>
+          <button onClick={goToEditMode}>edit</button>
+        </div>
+      )}
       <div>
         <b>Full name</b>:{profile.fullName}
       </div>
@@ -63,6 +81,16 @@ const ProfileData = (profile) => {
             />
           );
         })}
+      </div>
+    </div>
+  );
+};
+const ProfileDataForm = ({ profile, goToEditMode }) => {
+  return (
+    <div>
+      <div>form</div>
+      <div>
+        <button onClick={goToEditMode}>edit</button>
       </div>
     </div>
   );
