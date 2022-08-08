@@ -2,7 +2,7 @@ import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
 import ProfileStatus from "./ProfileStatus";
-import userPhoto from "../../../assets/images/myAva.jpeg";
+import userPhoto from "../../../assets/images/user.png";
 import ProfileStatusWithHook from "./ProfileStatuswithHook";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
@@ -28,6 +28,22 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
           className={s.mainPhoto}
         />
         {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+        <div>
+          <div>
+            <b>Full name</b>:{profile.fullName}
+          </div>
+          <div>
+            <b>Looking for a job</b>:{profile.lookingForAJob ? "yes" : "no"}
+          </div>
+          {profile.lookingForAJob && (
+            <div>
+              <b>My professional skills</b>:{profile.lookingForAJobDescription}
+            </div>
+          )}
+          <div>
+            <b>About me</b>:{profile.aboutMe}
+          </div>
+        </div>
         <ProfileStatusWithHook status={status} updateStatus={updateStatus} />
       </div>
     </div>
