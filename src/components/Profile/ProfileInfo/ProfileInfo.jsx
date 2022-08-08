@@ -6,7 +6,7 @@ import userPhoto from "../../../assets/images/user.png";
 import ProfileStatusWithHook from "./ProfileStatuswithHook";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 import { useState } from "react";
-import ProfileDataForm from "./ProfilDataForm";
+import ProfileDataForm from "./ProfileDataForm";
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
   const [editMode, setEditMode] = useState(false);
