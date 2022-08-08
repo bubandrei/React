@@ -43,9 +43,29 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
           <div>
             <b>About me</b>:{profile.aboutMe}
           </div>
+          <div>
+            <b>Contacts</b>:
+            {Object.keys(profile.contacts).map((item) => {
+              return (
+                <Contact
+                  key={item}
+                  contactTitle={item}
+                  contactValue={profile.contacts[item]}
+                />
+              );
+            })}
+          </div>
         </div>
         <ProfileStatusWithHook status={status} updateStatus={updateStatus} />
       </div>
+    </div>
+  );
+};
+
+const Contact = ({ contactTitle, contactValue }) => {
+  return (
+    <div className={s.contact}>
+      <b>{contactTitle}</b>: {contactValue}
     </div>
   );
 };
