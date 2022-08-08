@@ -28,35 +28,41 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
           className={s.mainPhoto}
         />
         {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
-        <div>
-          <div>
-            <b>Full name</b>:{profile.fullName}
-          </div>
-          <div>
-            <b>Looking for a job</b>:{profile.lookingForAJob ? "yes" : "no"}
-          </div>
-          {profile.lookingForAJob && (
-            <div>
-              <b>My professional skills</b>:{profile.lookingForAJobDescription}
-            </div>
-          )}
-          <div>
-            <b>About me</b>:{profile.aboutMe}
-          </div>
-          <div>
-            <b>Contacts</b>:
-            {Object.keys(profile.contacts).map((item) => {
-              return (
-                <Contact
-                  key={item}
-                  contactTitle={item}
-                  contactValue={profile.contacts[item]}
-                />
-              );
-            })}
-          </div>
-        </div>
+        <ProfileData />
         <ProfileStatusWithHook status={status} updateStatus={updateStatus} />
+      </div>
+    </div>
+  );
+};
+
+const ProfileData = (profile) => {
+  return (
+    <div>
+      <div>
+        <b>Full name</b>:{profile.fullName}
+      </div>
+      <div>
+        <b>Looking for a job</b>:{profile.lookingForAJob ? "yes" : "no"}
+      </div>
+      {profile.lookingForAJob && (
+        <div>
+          <b>My professional skills</b>:{profile.lookingForAJobDescription}
+        </div>
+      )}
+      <div>
+        <b>About me</b>:{profile.aboutMe}
+      </div>
+      <div>
+        <b>Contacts</b>:
+        {Object.keys(profile.contacts).map((item) => {
+          return (
+            <Contact
+              key={item}
+              contactTitle={item}
+              contactValue={profile.contacts[item]}
+            />
+          );
+        })}
       </div>
     </div>
   );
