@@ -1,28 +1,40 @@
 import React from "react";
-import { createField, Input } from "../../common/FormControls/FormsControl";
+import { reduxForm } from "redux-form";
+import {
+  createField,
+  Input,
+  Textarea,
+} from "../../common/FormControls/FormsControl";
 
 const ProfileDataForm = ({ profile, goToEditMode }) => {
   return (
     <form>
       {
         <div>
-          <button onClick={goToEditMode}>Save</button>
+          <button onClick={()=>{}}>Save</button>
         </div>
       }
       <div>
         <b>Full name</b>:{createField("Full name", "fullName", [], Input)}
       </div>
       <div>
-        <b>Looking for a job</b>:{profile.lookingForAJob ? "yes" : "no"}
-        {createField('', "lookingForAJob", [], Input)}
+        <b>Looking for a job</b>:
+        {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
       </div>
       {profile.lookingForAJob && (
         <div>
           <b>My professional skills</b>:{profile.lookingForAJobDescription}
+          {createField(
+            "My professional skills",
+            "lookingForAJobDescription",
+            [],
+            Textarea
+          )}
         </div>
       )}
       <div>
         <b>About me</b>:{profile.aboutMe}
+        {createField("About me", "about me", [], Textarea)}
       </div>
       <div>
         <b>Contacts</b>:
@@ -41,4 +53,6 @@ const ProfileDataForm = ({ profile, goToEditMode }) => {
   );
 };
 
-export default ProfileDataForm;
+const ProfilDataFormReduxForm = reduxForm({form:"edit-profile"})(ProfileDataForm);
+
+export default ProfilDataFormReduxForm;
