@@ -1,18 +1,20 @@
 import React from "react";
+import { createField, Input } from "../../common/FormControls/FormsControl";
 
 const ProfileDataForm = ({ profile, goToEditMode }) => {
   return (
     <form>
-      {isOwner && (
+      {
         <div>
           <button onClick={goToEditMode}>Save</button>
         </div>
-      )}
+      }
       <div>
-        <b>Full name</b>:{profile.fullName}
+        <b>Full name</b>:{createField("Full name", "fullName", [], Input)}
       </div>
       <div>
         <b>Looking for a job</b>:{profile.lookingForAJob ? "yes" : "no"}
+        {createField('', "lookingForAJob", [], Input)}
       </div>
       {profile.lookingForAJob && (
         <div>
@@ -26,11 +28,12 @@ const ProfileDataForm = ({ profile, goToEditMode }) => {
         <b>Contacts</b>:
         {Object.keys(profile.contacts).map((item) => {
           return (
-            <Contact
-              key={item}
-              contactTitle={item}
-              contactValue={profile.contacts[item]}
-            />
+            <div></div>
+            // <Contact
+            //   key={item}
+            //   contactTitle={item}
+            //   contactValue={profile.contacts[item]}
+            // />
           );
         })}
       </div>
