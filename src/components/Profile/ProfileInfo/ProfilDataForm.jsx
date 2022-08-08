@@ -7,17 +7,16 @@ import {
 } from "../../common/FormControls/FormsControl";
 import { Field } from "react-final-form";
 
-const ProfileDataForm = ({ profile, goToEditMode }) => {
+const ProfileDataForm = ({ handleSubmit, profile, goToEditMode }) => {
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <button onClick={() => {}}>Save</button>
       </div>
       <div>
-        {/* <b>Full name</b>:{createField("Full name", "fullName", [], Input)} */}
-        <b>Full name</b>:{Input}
+        <b>Full name</b>:{createField("Full name", "fullName", [], Input)}
       </div>
-      {/* <div>
+      <div>
         <b>Looking for a job</b>:
         {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
       </div>
@@ -36,16 +35,17 @@ const ProfileDataForm = ({ profile, goToEditMode }) => {
         <b>About me</b>:{profile.aboutMe}
         {createField("About me", "about me", [], Textarea)}
       </div>
-      <div>
+      {/* <div>
         <b>Contacts</b>:
         {Object.keys(profile.contacts).map((item) => {
           return (
-            <div></div>
-            // <Contact
-            //   key={item}
-            //   contactTitle={item}
-            //   contactValue={profile.contacts[item]}
-            // />
+            <div>
+            <Contact
+              key={item}
+              contactTitle={item}
+              contactValue={profile.contacts[item]}
+            />
+            </div>
           );
         })}
       </div> */}
