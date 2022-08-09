@@ -22,7 +22,7 @@ const ProfileDataForm = ({ handleSubmit, profile, goToEditMode }) => {
       </div>
       {profile.lookingForAJob && (
         <div>
-          <b>My professional skills</b>:{profile.lookingForAJobDescription}
+          <b>My professional skills</b>:
           {createField(
             "My professional skills",
             "lookingForAJobDescription",
