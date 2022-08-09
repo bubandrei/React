@@ -8,7 +8,7 @@ import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 import { useState } from "react";
 import ProfileDataForm from "./ProfileDataForm";
 
-const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
   const [editMode, setEditMode] = useState(false);
   const goToEditMode = () => {
     setEditMode(!editMode);
@@ -23,7 +23,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
     }
   };
   const onSubmit = (formData) =>{
-    console.log(formData);
+    saveProfile(formData);
   }
   return (
     <div>
