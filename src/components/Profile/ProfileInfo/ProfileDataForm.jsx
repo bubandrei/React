@@ -20,7 +20,6 @@ const ProfileDataForm = ({ handleSubmit, profile, goToEditMode }) => {
         <b>Looking for a job</b>:
         {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
       </div>
-      {profile.lookingForAJob && (
         <div>
           <b>My professional skills</b>:
           {createField(
@@ -30,7 +29,6 @@ const ProfileDataForm = ({ handleSubmit, profile, goToEditMode }) => {
             Textarea
           )}
         </div>
-      )}
       <div>
         <b>About me</b>:{profile.aboutMe}
         {createField("About me", "about me", [], Textarea)}
