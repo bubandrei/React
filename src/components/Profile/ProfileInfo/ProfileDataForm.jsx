@@ -11,7 +11,7 @@ const ProfileDataForm = ({ handleSubmit, profile, goToEditMode }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <button onClick={() => {}}>Save</button>
+        <button onClick={handleSubmit}>Save</button>
       </div>
       <div>
         <b>Full name</b>:{createField("Full name", "fullName", [], Input)}
