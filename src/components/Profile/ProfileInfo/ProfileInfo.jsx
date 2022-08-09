@@ -22,6 +22,9 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
       savePhoto(e.target.files[0]);
     }
   };
+  const onSubmit = (formData) =>{
+    console.log(formData);
+  }
   return (
     <div>
       {/* <div>
@@ -35,7 +38,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
         />
         {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
         {editMode ? (
-          <ProfileDataForm profile={profile}  goToEditMode={goToEditMode}/>
+          <ProfileDataForm profile={profile}  goToEditMode={goToEditMode} onSubmit={onSubmit}/>
         ) : (
           <ProfileData
             profile={profile}
