@@ -12,6 +12,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
   const [editMode, setEditMode] = useState(false);
   const goToEditMode = () => {
     setEditMode(!editMode);
+    debugger
   };
 
   if (!profile) {
