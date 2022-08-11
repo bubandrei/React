@@ -8,11 +8,17 @@ import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 import { useState } from "react";
 import ProfileDataForm from "./ProfileDataForm";
 
-const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
+const ProfileInfo = ({
+  profile,
+  status,
+  updateStatus,
+  isOwner,
+  savePhoto,
+  saveProfile,
+}) => {
   const [editMode, setEditMode] = useState(false);
   const goToEditMode = () => {
     setEditMode(!editMode);
-    debugger
   };
 
   if (!profile) {
@@ -23,9 +29,9 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
       savePhoto(e.target.files[0]);
     }
   };
-  const onSubmit = (formData) =>{
+  const onSubmit = (formData) => {
     saveProfile(formData);
-  }
+  };
   return (
     <div>
       {/* <div>
@@ -39,12 +45,16 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
         />
         {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
         {editMode ? (
-          <ProfileDataForm profile={profile}  goToEditMode={goToEditMode} onSubmit={onSubmit}/>
+          <ProfileDataForm
+            profile={profile}
+            goToEditMode={goToEditMode}
+            onSubmit={onSubmit}
+          />
         ) : (
           <ProfileData
             profile={profile}
             isOwner={isOwner}
-            goToEditMode={goToEditMode}
+            goToEditMode={() => setEditMode(true)}
           />
         )}
         <ProfileStatusWithHook status={status} updateStatus={updateStatus} />
