@@ -31,7 +31,7 @@ const ProfileDataForm = ({ handleSubmit, profile, goToEditMode }) => {
         </div>
       <div>
         <b>About me</b>:{profile.aboutMe}
-        {createField("About me", "about me", [], Textarea)}
+        {createField("About me", "aboutMe", [], Textarea)}
       </div>
       {/* <div>
         <b>Contacts</b>:
