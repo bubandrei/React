@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { profileAPI, userAPI } from "../api/api";
 
 const ADD_POST = 'ADD-POST';
@@ -78,6 +79,8 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     console.log(response)
     if (response.data.resultCode === 0) {
         dispatch(getUserProfile(userId));
+    } else {
+        dispatch(stopSubmit("login", {_error: response.data.message[0]}))
     }
 }
 export default profileReducer
