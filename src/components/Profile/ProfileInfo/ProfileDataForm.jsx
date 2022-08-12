@@ -6,8 +6,9 @@ import {
   Textarea,
 } from "../../common/FormControls/FormsControl";
 import { Field } from "react-final-form";
+import s from "./ProfileInfo.module.css";
 
-const ProfileDataForm = ({ handleSubmit, profile, goToEditMode }) => {
+const ProfileDataForm = ({ handleSubmit, profile }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -20,38 +21,34 @@ const ProfileDataForm = ({ handleSubmit, profile, goToEditMode }) => {
         <b>Looking for a job</b>:
         {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
       </div>
-        <div>
-          <b>My professional skills</b>:
-          {createField(
-            "My professional skills",
-            "lookingForAJobDescription",
-            [],
-            Textarea
-          )}
-        </div>
+      <div>
+        <b>My professional skills</b>:
+        {createField(
+          "My professional skills",
+          "lookingForAJobDescription",
+          [],
+          Textarea
+        )}
+      </div>
       <div>
         <b>About me</b>:{profile.aboutMe}
         {createField("About me", "aboutMe", [], Textarea)}
       </div>
-      {/* <div>
+      <div>
         <b>Contacts</b>:
         {Object.keys(profile.contacts).map((item) => {
           return (
-            <div>
-            <Contact
-              key={item}
-              contactTitle={item}
-              contactValue={profile.contacts[item]}
-            />
+            <div className={s.contact}>
+              <b>
+                {item}:{createField(item, "contacts." + item, [], Input)}
+              </b>
             </div>
           );
         })}
-      </div> */}
+      </div>
     </form>
   );
 };
-
-// const ProfilDataFormReduxForm = reduxForm({form:"edit-profile"})(ProfileDataForm);
 
 const ProfilDataFormReduxForm = reduxForm({
   form: "edit-profile",
