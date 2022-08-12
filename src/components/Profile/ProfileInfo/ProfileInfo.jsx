@@ -46,6 +46,7 @@ const ProfileInfo = ({
         {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
         {editMode ? (
           <ProfileDataForm
+          initialValues={profile}
             profile={profile}
             goToEditMode={goToEditMode}
             onSubmit={onSubmit}
