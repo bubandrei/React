@@ -7,6 +7,8 @@ import {
 } from "../../common/FormControls/FormsControl";
 import { Field } from "react-final-form";
 import s from "./ProfileInfo.module.css";
+import style from "../../common/FormControls/FormsControls.module.css";
+
 
 const ProfileDataForm = ({ handleSubmit, profile, error }) => {
   return (
@@ -39,7 +41,7 @@ const ProfileDataForm = ({ handleSubmit, profile, error }) => {
         <b>Contacts</b>:
         {Object.keys(profile.contacts).map((item) => {
           return (
-            <div className={s.contact}>
+            <div key={item} className={s.contact}>
               <b>
                 {item}:{createField(item, "contacts." + item, [], Input)}
               </b>
