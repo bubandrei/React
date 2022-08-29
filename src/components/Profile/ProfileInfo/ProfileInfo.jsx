@@ -102,16 +102,6 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
     </div>
   );
 };
-// const ProfileDataForm = ({ profile, goToEditMode }) => {
-//   return (
-//     <div>
-//       <div>form</div>
-//       <div>
-//         <button onClick={goToEditMode}>edit</button>
-//       </div>
-//     </div>
-//   );
-// };
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
