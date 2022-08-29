@@ -8,12 +8,13 @@ import {
 import { Field } from "react-final-form";
 import s from "./ProfileInfo.module.css";
 
-const ProfileDataForm = ({ handleSubmit, profile }) => {
+const ProfileDataForm = ({ handleSubmit, profile, error }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <button>Save</button>
       </div>
+      {error && <div className={style.formSummaryError}>{error}</div>}
       <div>
         <b>Full name</b>:{createField("Full name", "fullName", [], Input)}
       </div>
@@ -38,7 +39,7 @@ const ProfileDataForm = ({ handleSubmit, profile }) => {
         <b>Contacts</b>:
         {Object.keys(profile.contacts).map((item) => {
           return (
-            <div key={key} className={s.contact}>
+            <div className={s.contact}>
               <b>
                 {item}:{createField(item, "contacts." + item, [], Input)}
               </b>
